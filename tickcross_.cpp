@@ -17,12 +17,15 @@ int back();
 //main function
 int main()
 {
+    int point1,point2;
     int u=0,player,winer;
     char choice;
     char game [3][3];
     string p1,p2;
 
     homescreen:
+    point1=0;
+    point2=0;
     reset(game);
     choice = menu();
 
@@ -41,7 +44,6 @@ int main()
             system("cls");
             cout<<"starting";
             loading ();
-
             while(u==0)
             {
                 cout<<"Enter Player [1] name : ";
@@ -58,10 +60,8 @@ int main()
                     break;
                 }
             }
-
             while(u==0)
             {
-
                 cout<<"Enter Player [2] name : ";
                 getline(cin,p2);
                 if(p2=="")
@@ -106,11 +106,9 @@ int main()
                 {
                     break;
                 }
-
                 //player-2 turns
                 if(i!=9)
                 {
-
                     system ("cls");
                     grids(game);
 
@@ -128,7 +126,6 @@ int main()
                     }
                     u=0;
                     i++;
-
                     winer=check(game);
                     if (winer==2)
                     {
@@ -142,19 +139,23 @@ int main()
             if (winer==1)
             {
                 cout<<p1<<" Won the Match"<<endl;
+                point1++;
             }
             if (winer==2)
             {
                 cout<<p2<<" Won the Match"<<endl;
+                point2++;
             }
             if (winer==0)
             {
                 cout<<"Game Draw"<<endl;
             }
+            cout<<endl<<"Current score"<<endl;
+            cout<<p1<<" = "<<point1<<endl;
+            cout<<p2<<" = "<<point2<<endl;
             cout<<endl<<"If you want to restart with same players enter 'R'"<<endl;
             cout<<"Else enter any key to go back to main menu"<<endl;
             u=back();
-
             system ("cls");
             if (u==1)
             {
@@ -177,12 +178,9 @@ int main()
             cout<<"Invalid choice select again"<<endl;
             goto homescreen;
         }
-
     }
-
     return 0;
 }
-
 //this function is the interface of main menu + selecting choice
 char menu(void)
 {   char menu;
@@ -192,7 +190,6 @@ char menu(void)
     cout<<"2. Start game"<<endl;
     cout<<"3. Exit"<<endl;
     cout<<"(Enter corresponding number to select option)"<<endl<<endl;
-
     cin >> menu;
     return menu;
 }
@@ -216,14 +213,13 @@ void help(void)
 {
     char waste;
     char eg [3][3]={{'1','2','3'},{'4','5','6'},{'7','8','9'}};
-
     system ("cls");
     cout<<"< How to play game >"<<endl;
     cout<<endl<<"--->If you want to restart the game in your turn then press r";
+    cout<<endl<<"--->After restarting game will continue with current score";
     cout<<endl<<"--->how to mark your turn?"<<endl;
     cout<<endl<<"Enter the corresponding number to mark the slot"<<endl;
     grids(eg);
-
     cout<<"For example, to mark the top left box, press '1'"<<endl;
     for (int i=0;i<3;i++)
    {
@@ -234,19 +230,15 @@ void help(void)
    }
     grids(eg);
     cout<<endl;
-
     eg[0][0]='X';
     cout<<"It will be mark as "<<endl;
-
     grids(eg);
-
     cout<<endl<< "Press any character to back"<<endl;
     cin >> waste;
 }
 //this function is for starting ANIMATIONION
 void loading(void)
 {
-
     Sleep(400);
     cout<<".";
     Sleep(400);
@@ -260,7 +252,6 @@ void loading(void)
 int data_1(char game[3][3])
 {
     string input;
-
     getline(cin,input);
     if (input=="r"||input=="R")
     {
@@ -390,7 +381,6 @@ int check(char game[3][3])
             return 2;
         }
     }
-
     else if (game[2][0]==game[2][1] && game[2][1]==game[2][2])
     {
         if (game[2][0]=='X')
@@ -487,7 +477,3 @@ int back()
         return 0;
     }
 }
-
-
-
-
