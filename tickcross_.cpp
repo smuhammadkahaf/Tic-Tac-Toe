@@ -374,7 +374,7 @@ int check(char game[3][3])
             return 2;
         }
     }
-    else if (game[1][0]==game[1][1] && game[1][1]==game[1][2])
+    if (game[1][0]==game[1][1] && game[1][1]==game[1][2])
     {
         if (game[1][0]=='X')
         {
@@ -385,8 +385,10 @@ int check(char game[3][3])
             return 2;
         }
     }
-    else if (game[2][0]==game[2][1] && game[2][1]==game[2][2])
+     if (game[2][0]==game[2][1] && game[2][1]==game[2][2])
     {
+
+
         if (game[2][0]=='X')
         {
             return 1;
@@ -397,7 +399,7 @@ int check(char game[3][3])
         }
     }
     //vertical match
-    else if (game[0][0]==game[1][0] && game[1][0]==game[2][0])
+    if (game[0][0]==game[1][0] && game[1][0]==game[2][0])
     {
         if (game[0][0]=='X')
         {
@@ -419,7 +421,7 @@ int check(char game[3][3])
             return 2;
         }
     }
-    else if (game[0][2]==game[1][2] && game[1][2]==game[2][2])
+    if (game[0][2]==game[1][2] && game[1][2]==game[2][2])
     {
         if (game[0][2]=='X')
         {
@@ -431,7 +433,7 @@ int check(char game[3][3])
         }
     }
     //diagonal Match
-    else if (game[0][0]==game[1][1] && game[1][1]==game[2][2])
+    if (game[0][0]==game[1][1] && game[1][1]==game[2][2])
     {
         if (game[0][0]=='X')
         {
@@ -442,7 +444,7 @@ int check(char game[3][3])
             return 2;
         }
     }
-    else if (game[2][0]==game[1][1] && game[1][1]==game[0][2])
+    if (game[2][0]==game[1][1] && game[1][1]==game[0][2])
     {
         if (game[2][0]=='X')
         {
