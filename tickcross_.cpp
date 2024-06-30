@@ -219,9 +219,9 @@ void help(void)
     char eg [3][3]={{'1','2','3'},{'4','5','6'},{'7','8','9'}};
     system ("cls");
     cout<<"< How to play game >"<<endl;
-    cout<<endl<<"--->If you want to restart the game in your turn then press r";
-    cout<<endl<<"--->After restarting game will continue with current score";
-    cout<<endl<<"--->how to mark your turn?"<<endl;
+    cout<<endl<<"---> If you want to restart the game in your turn then press r";
+    cout<<endl<<"---> After restarting game will continue with same player and their current score";
+    cout<<endl<<"---> how to mark your turn?"<<endl;
     cout<<endl<<"Enter the corresponding number to mark the slot"<<endl;
     grids(eg);
     cout<<"For example, to mark the top left box, press '1'"<<endl;
