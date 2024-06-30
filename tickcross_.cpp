@@ -8,11 +8,12 @@ char menu (void);
 void grids (char [3][3]);
 void help(void);
 void loading(void);
-int data_1(char [3][3]);
-int data_2(char [3][3]);
-int check(char  [3][3]);
+int  data_1(char [3][3]);
+int  data_2(char [3][3]);
+int  check(char  [3][3]);
 void reset(char[3][3]);
-int back();
+int  back();
+void exchange(string*,string*,int*,int*);
 
 //main function
 int main()
@@ -96,6 +97,7 @@ int main()
                         system("cls");
                         cout<<"Restarting";
                         loading();
+                        exchange(&p1,&p2,&point1,&point2);
                         goto restart;
                     }
                 }
@@ -120,6 +122,7 @@ int main()
                         {
                             system("cls");
                             cout<<"Restarting";
+                            exchange(&p1,&p2,&point1,&point2);
                             loading();
                             goto restart;
                         }
@@ -162,6 +165,7 @@ int main()
                 system("cls");
                 cout<<"Restarting";
                 loading();
+                exchange(&p1,&p2,&point1,&point2);
                 goto restart;
             }
             goto homescreen;
@@ -476,4 +480,18 @@ int back()
     {
         return 0;
     }
+}
+//swap player turn after each restart
+
+void exchange(string* p1,string* p2, int* point1,int* point2)
+{
+    int temp;
+    string temp1;
+    temp1=* p1;
+    *p1 =*p2;
+    *p2 =temp1;
+
+    temp   =*point1;
+    *point1=*point2;
+    *point2=temp;
 }
