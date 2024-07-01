@@ -91,7 +91,7 @@ int main()
                 grids(game);
                 while (u==0)
                 {
-                    cout<<p1<<" Turn : "<<endl;
+                    cout<<p1<<"[X] Turn : "<<endl;
                     u=data_1(game);
                     if(u==2)
                     {
@@ -100,6 +100,13 @@ int main()
                         loading();
                         exchange(&p1,&p2,&point1,&point2);
                         goto restart;
+                    }
+                    else if(u==3)
+                    {
+                        system("cls");
+                        cout<<"loading";
+                        loading();
+                        goto homescreen;
                     }
                 }
                 u=0;
@@ -117,7 +124,7 @@ int main()
 
                     while (u==0)
                     {
-                        cout<<p2<<" Turn : "<<endl;
+                        cout<<p2<<"[O] Turn : "<<endl;
                         u=data_2(game);
                         if(u==2)
                         {
@@ -126,6 +133,13 @@ int main()
                             exchange(&p1,&p2,&point1,&point2);
                             loading();
                             goto restart;
+                        }
+                        else if(u==3)
+                        {
+                            system("cls");
+                            cout<<"loading";
+                            loading();
+                            goto homescreen;
                         }
                     }
                     u=0;
@@ -201,17 +215,17 @@ char menu(void)
 //this function will display the array in grid
 void grids (char x[3][3])
 {
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<x[0][0]<<"  |  "<<x[0][1]<<"  |  "<<x[0][2]<<"  "<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"-----------------"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<x[1][0]<<"  |  "<<x[1][1]<<"  |  "<<x[1][2]<<"  "<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"-----------------"<<endl;
-    cout<<"     |     |     "<<endl;
-    cout<<"  "<<x[2][0]<<"  |  "<<x[2][1]<<"  |  "<<x[2][2]<<"  "<<endl;
-    cout<<"     |     |     "<<endl;
+    cout<<"\t     |     |     "<<endl;
+    cout<<"\t  "<<x[0][0]<<"  |  "<<x[0][1]<<"  |  "<<x[0][2]<<"  "<<endl;
+    cout<<"\t     |     |     "<<endl;
+    cout<<"\t-----------------"<<endl;
+    cout<<"\t     |     |     "<<endl;
+    cout<<"\t  "<<x[1][0]<<"  |  "<<x[1][1]<<"  |  "<<x[1][2]<<"  "<<endl;
+    cout<<"\t     |     |     "<<endl;
+    cout<<"\t-----------------"<<endl;
+    cout<<"\t     |     |     "<<endl;
+    cout<<"\t  "<<x[2][0]<<"  |  "<<x[2][1]<<"  |  "<<x[2][2]<<"  "<<endl;
+    cout<<"\t     |     |     "<<endl;
 }
 //this function will use as help menu or to pause the game
 void help(void)
@@ -261,6 +275,10 @@ int data_1(char game[3][3])
     if (input=="r"||input=="R")
     {
         return 2;
+    }
+    else if(input=="E"||input=="e")
+    {
+        return 3;
     }
     else if (input=="1" && game[0][0]==' ')
     {
@@ -315,6 +333,10 @@ int data_2(char game[3][3])
     if (input=="r"||input=="R")
     {
         return 2;
+    }
+    else if(input=="E"||input=="e")
+    {
+        return 3;
     }
     else if (input=="1" && game[0][0]==' ')
     {
